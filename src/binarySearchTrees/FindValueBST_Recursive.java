@@ -2,21 +2,19 @@ package binarySearchTrees;
 
 public class FindValueBST_Recursive {
 
-    static int closest;
-
     public static int findClosestValueInBst(BST tree, int target) {
-        closest = Integer.MAX_VALUE;
-        findValue(tree, target);
-        return closest;
+        return findValueRecursive(tree, target, tree.value);
     }
-    private static void findValue(BST tree, int target){
-        int result = Math.abs(tree.value - target);
-        if(result < Math.abs(closest - target))
+    private static int findValueRecursive(BST tree, int target, int closest){
+        if(Math.abs(target - closest) > Math.abs(target - tree.value))
             closest = tree.value;
-        if(tree.left != null)
-            findValue(tree.left, target);
-        if(tree.right != null)
-            findValue(tree.right, target);
+
+        if(target < tree.value && tree.left != null)
+            return findValueRecursive(tree.left, target, closest);
+        else if(target > tree.value && tree.right != null)
+            return  findValueRecursive(tree.right, target, closest);
+        else
+            return closest;
     }
 
     static class BST {

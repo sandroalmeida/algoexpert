@@ -47,6 +47,11 @@ public class BSTConstruction {
             }
         }
 
+        public BST remove(int value){
+            remove(value, null);
+            return this;
+        }
+
         public void remove(int value, BST parent) {
             if(value < this.value){
                 if(left != null){

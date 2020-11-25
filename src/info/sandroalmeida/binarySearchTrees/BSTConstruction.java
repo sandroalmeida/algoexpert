@@ -1,4 +1,4 @@
-package binarySearchTrees;
+package info.sandroalmeida.binarySearchTrees;
 
 public class BSTConstruction {
 

@@ -1,31 +1,31 @@
 package info.sandroalmeida.binarySearchTrees;
 
-public class BSTSimple {
+public class BSTConstruction_V2 {
 
     private int value;
-    private BSTSimple left;
-    private BSTSimple right;
+    private BSTConstruction_V2 left;
+    private BSTConstruction_V2 right;
 
-    public BSTSimple(int value) {
+    public BSTConstruction_V2(int value) {
         this.value = value;
     }
 
-    public BSTSimple insert(int value, BSTSimple node) {
+    public BSTConstruction_V2 insert(int value, BSTConstruction_V2 node) {
         if(value < node.value){
             if(node.left == null)
-                node.left = new BSTSimple(value);
+                node.left = new BSTConstruction_V2(value);
              else
                 node.insert(value, node.left);
         } else{
             if(node.right == null)
-                node.right = new BSTSimple(value);
+                node.right = new BSTConstruction_V2(value);
             else
                 node.insert(value, node.right);
         }
         return node;
     }
 
-    public boolean contains(int value, BSTSimple node) {
+    public boolean contains(int value, BSTConstruction_V2 node) {
         if(value < node.value){
             if(node.left == null)
                 return false;
@@ -41,7 +41,7 @@ public class BSTSimple {
         }
     }
 
-    public void remove(int value, BSTSimple node) {
+    public void remove(int value, BSTConstruction_V2 node) {
         if(value < node.value) {
             if (node.left != null)
                 node.left.remove(value, node.left);
@@ -70,7 +70,7 @@ public class BSTSimple {
         }
     }
 
-    private int getMinValue(BSTSimple node){
+    private int getMinValue(BSTConstruction_V2 node){
         if(node.left == null)
             return node.value;
         else

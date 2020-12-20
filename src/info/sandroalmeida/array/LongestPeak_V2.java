@@ -26,6 +26,7 @@ public class LongestPeak_V2 {
             }
 
             maxLength = Math.max(leftLength + rightLength - 1, maxLength);
+            i = rightIdx; // saving some cycles
 
         }
 

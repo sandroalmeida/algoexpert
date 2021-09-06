@@ -1,9 +1,5 @@
 package info.sandroalmeida.array;
 
-import java.util.Arrays;
-import java.util.HashMap;
-import java.util.Map;
-
 public class SubarraySort {
 
     public static int[] subarraySort(int[] array) {
@@ -12,9 +8,7 @@ public class SubarraySort {
         int minNonSorted = Integer.MAX_VALUE;
 
         for(int i = 0; i < array.length; i++){
-            if(isSorted(i, array))
-                continue;
-            else{
+            if(!isSorted(i, array)){
                 int current = array[i];
                 if(current > maxNonSorted) maxNonSorted = current;
                 if(current < minNonSorted) minNonSorted = current;

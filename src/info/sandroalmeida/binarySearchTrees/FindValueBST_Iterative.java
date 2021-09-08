@@ -1,29 +1,31 @@
 package info.sandroalmeida.binarySearchTrees;
 
-import java.util.LinkedList;
+import java.util.Stack;
 
 public class FindValueBST_Iterative {
 
    public static int findClosestValueInBst(BST tree, int target) {
 
-       BST currentNode = tree;
-        LinkedList<BST> nodesQueue = new LinkedList<>();
-        int diff = Integer.MAX_VALUE, closest = 0;
+        int closestValue = Integer.MAX_VALUE;
+        BST closestNode = tree;
+        Stack<BST> stack = new Stack<>();
+        stack.push(tree);
 
-        while(currentNode != null){
-            int currentDiff = Math.abs(target - currentNode.value);
-            if(currentDiff < diff){
-                if(currentDiff == 0) return currentNode.value;
-                diff = currentDiff;
-                closest = currentNode.value;
+        while(!stack.empty()){
+            BST currentNode = stack.pop();
+            int currentDiff = Math.abs(currentNode.value - target);
+            if(currentDiff < closestValue){
+                closestValue = currentDiff;
+                closestNode = currentNode;
             }
-            if(currentNode.left != null) nodesQueue.add(currentNode.left);
-            if(currentNode.right != null) nodesQueue.add(currentNode.right);
+            if(closestValue == 0) break;
 
-            currentNode = nodesQueue.poll();
+            if(currentNode.right != null && target > currentNode.value)
+                stack.push(currentNode.right);
+            if(currentNode.left != null && target < currentNode.value)
+                stack.push(currentNode.left);
         }
-        return closest;
-
+        return closestNode.value;
     }
 
     static class BST {

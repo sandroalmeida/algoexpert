@@ -1,29 +1,23 @@
 package info.sandroalmeida.binarySearchTrees;
 
-import java.util.Comparator;
-import java.util.PriorityQueue;
-import java.util.Queue;
+import java.util.ArrayList;
+import java.util.List;
 
-public class FindKthLargestInBST {
+public class FindKthLargestInBST_V2 {
 
     public static int findKthLargestValueInBst(BST tree, int k) {
 
-        Queue<Integer> maxHeap = new PriorityQueue<>(Comparator.reverseOrder());
-        traverseBST(tree, maxHeap);
-        while(k > 1){
-            maxHeap.poll();
-            k--;
-        }
-
-        return maxHeap.isEmpty() ? 0 : maxHeap.peek();
+        List<Integer> largestList = new ArrayList<>();
+        reverseOrderTraverseBST(tree, largestList, k);
+        return largestList.get(k - 1);
     }
 
-    public static void traverseBST(BST node, Queue<Integer> maxHeap){
-        if(node == null) return;
+    public static void reverseOrderTraverseBST(BST node, List<Integer> largestList, int k){
+        if(node == null || largestList.size() == k) return;
 
-        maxHeap.add(node.value);
-        if(node.left != null) traverseBST(node.left, maxHeap);
-        if(node.right != null) traverseBST(node.right, maxHeap);
+        if(node.right != null) reverseOrderTraverseBST(node.right, largestList, k);
+        largestList.add(node.value);
+        if(node.left != null) reverseOrderTraverseBST(node.left, largestList, k);
     }
 
     static class BST {

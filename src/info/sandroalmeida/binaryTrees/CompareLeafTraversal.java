@@ -1,4 +1,4 @@
-package info.sandroalmeida.array;
+package info.sandroalmeida.binaryTrees;
 
 import java.util.Stack;
 

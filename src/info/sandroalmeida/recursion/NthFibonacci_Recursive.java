@@ -1,20 +1,14 @@
 package info.sandroalmeida.recursion;
 
-public class NthFibonacci {
+public class NthFibonacci_Recursive {
 
     public static int getNthFib(int n) {
-
-        int n1 = 0, n2 = 1;
-        if(n == 1) return n1;
-        if(n == 2) return n2;
-
-        for(int i = 3; i <= n; i++){
-            int n3 = n1 + n2;
-            n1 = n2;
-            n2 = n3;
-        }
-
-        return n2;
+        if(n == 1)
+            return 0;
+        else if(n == 2)
+            return 1;
+        else
+            return getNthFib(n - 1) + getNthFib(n - 2);
     }
 
     public static void main(String[] args) {

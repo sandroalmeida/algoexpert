@@ -1,4 +1,4 @@
-package info.sandroalmeida.array;
+package info.sandroalmeida.recursion;
 
 public class NthFibonacci {
 

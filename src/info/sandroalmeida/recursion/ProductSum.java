@@ -1,4 +1,4 @@
-package info.sandroalmeida.array;
+package info.sandroalmeida.recursion;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -24,7 +24,7 @@ public class ProductSum {
     }
 
     public static void main(String[] args) {
-        List<Object> test = new ArrayList<Object>(Arrays.asList(5, 2, new ArrayList<Object>(Arrays.asList(7, -1)), 3, new ArrayList<Object>( Arrays.asList(6, new ArrayList<Object>(Arrays.asList(-13, 8)), 4))));
+        List<Object> test = new ArrayList<>(Arrays.asList(5, 2, new ArrayList<Object>(Arrays.asList(7, -1)), 3, new ArrayList<Object>( Arrays.asList(6, new ArrayList<Object>(Arrays.asList(-13, 8)), 4))));
         System.out.println(productSum(test));
     }
 }

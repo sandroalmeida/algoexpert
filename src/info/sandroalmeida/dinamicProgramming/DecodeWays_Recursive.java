@@ -3,26 +3,26 @@ package info.sandroalmeida.dinamicProgramming;
 public class DecodeWays_Recursive {
 
     public static int numDecodings(String s) {
-        return helper(s);
+        return helper(s, s.length());
     }
 
-    public static int helper(String str){
-        if(str == null || str.length() == 0) return 0;
-        if(str.length() == 1) return 1;
+    public static int helper(String str, int size){
+        if(size == 0)
+            return 1;
+        int p = str.length() - size;
 
-        String subsOne = str.substring(1);
-        String subsTwo = str.substring(2);
+        if(str.indexOf(p) == '0')
+            return 0;
 
-        int totalOne = helper(subsOne);
-        int totalTwo = 0;
-        int firstTwo = Integer.parseInt(str.substring(0, 2));
-        if(firstTwo >= 10 && firstTwo <= 26)
-            totalTwo = helper(subsTwo);
-        return totalOne + totalTwo;
+        int result = helper(str, size - 1);
+
+        if(size >= 2 && Integer.parseInt(str.substring(p, p + 2)) <= 26)
+            result += helper(str, size - 2);
+        return result;
     }
 
     public static void main(String[] args) {
-        System.out.println(numDecodings("1233"));
+        System.out.println(numDecodings("216"));
     }
 
 }

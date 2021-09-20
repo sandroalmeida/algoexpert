@@ -1,15 +1,10 @@
 package info.sandroalmeida.recursion;
 
-// array = [1, 2, 3, 4]
-// [[],
-// [1], [2], [3], [4],
-// [1, 2], [1, 3], [1, 4], [2, 3], [2, 4], [3, 4],
-// [1, 2, 3], [1, 2, 4], [1, 3, 4], [2, 3, 4],
-// [1, 2, 3, 4]]
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
 
-import java.util.*;
-
-public class Powerset {
+public class Powerset_Iteration {
 
     public static List<List<Integer>> powerset(List<Integer> array) {
         List<List<Integer>> result = new ArrayList<>();

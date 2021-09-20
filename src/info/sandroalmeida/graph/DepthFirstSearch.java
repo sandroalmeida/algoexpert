@@ -1,4 +1,4 @@
-package info.sandroalmeida.binarySearchTrees;
+package info.sandroalmeida.graph;
 
 import java.util.ArrayList;
 import java.util.List;

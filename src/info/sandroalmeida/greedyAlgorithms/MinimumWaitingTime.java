@@ -1,4 +1,4 @@
-package info.sandroalmeida.array;
+package info.sandroalmeida.greedyAlgorithms;
 
 import java.util.Arrays;
 
@@ -8,7 +8,6 @@ public class MinimumWaitingTime {
 
         int waitingTime = 0;
         int currentSum = 0;
-        int max = Integer.MIN_VALUE;
         Arrays.sort(queries);
 
         for(int i = 0; i < queries.length - 1; i++){

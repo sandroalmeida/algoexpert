@@ -1,9 +1,5 @@
 package info.sandroalmeida.dinamicProgramming;
 
-import java.util.PriorityQueue;
-import java.util.Queue;
-
-//array = [75, 105, 120, 75, 90, 135, 90]
 public class MaxSubsetSumNoAdjacent {
 
     public static int maxSubsetSumNoAdjacent(int[] array) {

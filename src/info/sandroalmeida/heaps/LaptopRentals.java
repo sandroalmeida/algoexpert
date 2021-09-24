@@ -36,9 +36,9 @@ public class LaptopRentals {
 
     public static void main(String[] args) {
         int[][] times = new int[][] {{0, 2}};
-        ArrayList<ArrayList<Integer>> input = new ArrayList<ArrayList<Integer>>();
+        ArrayList<ArrayList<Integer>> input = new ArrayList<>();
         for (int[] time : times) {
-            input.add(new ArrayList(Arrays.asList(time[0], time[1])));
+            input.add(new ArrayList<>(Arrays.asList(time[0], time[1])));
         }
         System.out.println(laptopRentals(input));
     }
